@@ -1,0 +1,178 @@
+/* NORMALIZE */
+
+h1, h2 {
+    margin: 0px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* POSITION & SIZE & GRID */
+
+#app {
+    display: grid;
+    grid-template-rows: 140px 1fr 140px;
+    grid-template-columns: 250px 1fr;
+    grid-template-areas:
+        "head head"
+        "nav  main"
+        "footer footer";
+    width: 1000px;
+    margin: 8px auto;
+}
+
+header {
+    grid-area: head;
+}
+
+nav {
+    grid-area: nav;
+}
+
+main {
+    grid-area: main;
+}
+
+footer {
+    grid-area: footer;
+}
+
+#logo {
+    height: 100px;
+    position: absolute;
+    padding: 20px;
+}
+
+header h1 {
+    text-align: center;
+    line-height: 140px;
+}
+
+nav h2 {
+    padding: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav li {
+    margin: 4px 0;
+    padding: 0 20px;
+}
+
+nav li.sep {
+    height: 20px;
+}
+
+#new-list {
+    margin-top: 40px;
+}
+
+.content-wrapper {
+    padding: 40px;
+}
+
+#list {
+    height: 200px;
+    list-style-type: none;
+}
+
+#add-new input {
+    position: relative;
+    top: -2px;
+}
+
+#add-new input[type=text] {
+    width: 20em;
+}
+
+#remove-all {
+    margin-top: 20px;
+}
+
+#thanks {
+    text-align: center;
+    margin-top: 34px;
+}
+
+#footer-links {
+    margin-top: 4px;
+    text-align: center;
+}
+
+#footer-links li {
+    display: inline-block;
+}
+
+
+/* COLOR */
+
+body {
+    color: hsl(195, 50%, 10%);
+}
+
+main {
+    background-color: hsl(195, 50%, 50%);
+}
+
+header, footer {
+    background-color: hsl(195, 50%, 30%);
+}
+
+header h1 {
+    color: white;
+}
+
+nav {
+    background-color: hsl(195, 50%, 40%);
+}
+
+#footer-links li, #footer-links li a, #new-list a {
+    color: hsl(195, 50%, 80%);
+}
+
+nav li.active {
+    background-color: hsl(195, 50%, 80%);
+}
+
+
+/* TYPOGRAPHY */
+
+body {
+    font-family: Roboto, sans-serif;
+    font-size: 1.3em;
+}
+
+input[type=text], input[type=button], button {
+    font-family: Roboto, sans-serif;
+}
+
+header h1 {
+    font-weight: normal;
+    letter-spacing: -1pt;
+}
+
+nav h2 {
+    font-weight: bold;
+    font-size: 110%;
+}
+
+#new-list a {
+    text-decoration: none;
+}
+
+#thanks {
+    font-size: 150%;
+}
+
+#footer-links {
+    font-size: 80%;
+}
+
+#footer-links li:not(:first-child)::before {
+    content: " | ";
+}
