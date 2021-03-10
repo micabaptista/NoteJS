@@ -4,8 +4,7 @@ for (let i = 0; i < lists.getElementsByClassName("not-active").length; i++) {
     lists.getElementsByClassName("active")[0].addEventListener("click", changeList);
     // apagar a posteriori
     localStorage.setItem(lists.getElementsByClassName("not-active")[i].textContent, null)
-    localStorage.setItem(lists.getElementsByClassName("active")[i].textContent, null)
-
+    localStorage.setItem(lists.getElementsByClassName("active")[0].textContent, null)
 }
 
 function changeList() {
