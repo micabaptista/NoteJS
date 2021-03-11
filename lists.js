@@ -1,12 +1,15 @@
-let lists = document.querySelector("nav ul");
-for (let i = 0; i < lists.getElementsByClassName("not-active").length; i++) {
-    lists.getElementsByClassName("not-active")[i].addEventListener("click", changeList);
-    lists.getElementsByClassName("active")[0].addEventListener("click", changeList);
-    // apagar a posteriori
-    localStorage.setItem(lists.getElementsByClassName("not-active")[i].textContent, null)
-    localStorage.setItem(lists.getElementsByClassName("active")[i].textContent, null)
+/**
+ *  Add all eventListeners to nav options
+ */
+let addEventListeners = () => {
+    let lists = document.querySelector("nav ul");
+    for (let i = 0; i < lists.getElementsByClassName("not-active").length; i++) {
+        lists.getElementsByClassName("not-active")[i].addEventListener("click", changeList);
+        lists.getElementsByClassName("active")[0].addEventListener("click", changeList);
+    }
+};
 
-}
+addEventListeners();
 
 function changeList() {
     const previousList = document.querySelector(".active").textContent;
@@ -15,7 +18,6 @@ function changeList() {
     event.target.classList.replace("not-active", "active");
 
     saveLastItems(previousList);
-
     updateNewItems();
 
 }
@@ -25,15 +27,13 @@ let saveLastItems = (previousList) => {
     if (typeof (Storage) !== "undefined") {
 
         let list = document.querySelectorAll("#list li");
-        let data = {
-            item: []
-        };
+        let data = [];
 
         for (let i = 0; i < list.length; i++) {
             let checkbox = document.querySelectorAll("#list li label input[type=checkbox]")[i];
             let name = document.querySelectorAll("#list label")[i].textContent.trim();
 
-            data.item[i] = {
+            data[i] = {
                 value: checkbox.checked,
                 name: name
             }
@@ -50,17 +50,22 @@ let updateNewItems = () => {
     let current = document.querySelector(".active").textContent.trim();
 
     let data = JSON.parse(localStorage.getItem(current));
+    console.log("data", data)
 
 
-    let txt = "";
-    txt += "<ul id='list'>"
-    for (let i = 0; i < obj.item.length; i++) {
-        txt += "<li><label><input type='checkbox'>" + data.item[i] + "</label></li>";
+    let ul = document.getElementById("list");
+    ul.innerText = ''
+    for (let i = 0; i < data.length; i++) {
+        let li = document.createElement("li");
+        let label = document.createElement("label");
+        let input = document.createElement("input");
+        input.setAttribute("type", "checkbox");
+        data[i].value ? input.checked = true : input;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(data[i].name));
+        li.appendChild(label);
+        ul.appendChild(li);
     }
-    txt += "</ul>"
-
-    document.getElementById("#list").replaceWith(txt);
-
 }
 
 
