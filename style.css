@@ -11,6 +11,27 @@ ul {
 
 
 /* POSITION & SIZE & GRID */
+nav > ul > li > div{
+    display: inline-flex;
+    padding-bottom: 2px;
+    padding-top: 0;
+}
+nav > ul > li > div >input{
+    margin-right: 10px;
+}
+
+
+.remove-list {
+    background-color: rgba(35, 96, 116, 0.89);
+    border-color: white;
+    border-style: double;
+    color: white;
+}
+
+.remove-list:hover {
+    background-color: rgb(165, 18, 18);
+    color: white;
+}
 
 #app {
     display: grid;

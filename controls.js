@@ -2,7 +2,6 @@ let add = document.querySelector("#add-new input[type=button]");
 add.addEventListener("click", funcAdd);
 
 function funcAdd() {
-
     let ul = document.getElementById("list");
     let textInput = document.querySelector("#add-new input[type=text]").value;
 
@@ -33,5 +32,5 @@ function removeFunc() {
             i--;
         }
     }
-
 }
+
