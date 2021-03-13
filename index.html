@@ -17,40 +17,12 @@
 	<nav>
 		<h2>My lists</h2>
 		<ul>
-			<li class="active">Today's dinner</li>
-			<li class="not-active">Shopping list</li>
-			<li class="not-active">Homework</li>
-			<li class="not-active">Study materials</li>
 			<li id="new-list" onclick="createList()"><a href="#">+ Create new list</a></li>
 		</ul>
 	</nav>
 	<main>
 		<div class="content-wrapper">
 			<ul id="list">
-				<li>
-					<label>
-						<input type="checkbox" checked>
-						Feed the cat
-					</label>
-				</li>
-				<li>
-					<label>
-						<input type="checkbox" checked>
-						Make dinner for three
-					</label>
-				</li>
-				<li>
-					<label>
-						<input type="checkbox">
-						Take a shower
-					</label>
-				</li>
-				<li>
-					<label>
-						<input type="checkbox">
-						Turn on spotify
-					</label>
-				</li>
 			</ul>
 
 			<div id="controls">
@@ -77,8 +49,11 @@
 		</ul>
 	</footer>
 </div>
-<script src="behaviour.js"></script>
-<script src="lists.js"></script>
+<script src="controls.js"></script>
+<script src="updateLists.js"></script>
+<script src="removeLists.js"></script>
+<script src="createLists.js"></script>
+
 
 </body>
 
